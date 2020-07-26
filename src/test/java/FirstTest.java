@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,10 +8,11 @@ import org.apache.log4j.Logger;
 
 public class FirstTest {
     private static final Logger log = Logger.getLogger(FirstTest.class);
+    protected static WebDriver driver;
 
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver","/Users/bakytgul/Drivers/chromedriver");
-        WebDriver driver = new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
 
         driver.manage().window().maximize();
         driver.get("https://otus.ru/");
