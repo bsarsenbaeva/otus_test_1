@@ -8,14 +8,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
+import org.apache.log4j.Logger;
 
 public class YandexTest {
     protected static WebDriver driver;
-    private final Logger logger = LogManager.getLogger(YandexTest.class);
+    private final Logger logger = Logger.getLogger(YandexTest.class);
 
     @Before
     public void setUp() {
@@ -23,13 +22,6 @@ public class YandexTest {
         driver = new ChromeDriver();
         logger.info("Драйвер поднят");
         driver.manage().timeouts().implicitlyWait(5, SECONDS);
-    }
-
-    @After
-    public void setDown() {
-        if (driver != null) {
-//            driver.quit();
-        }
     }
 
     @Test
@@ -83,5 +75,12 @@ public class YandexTest {
         WebElement differentSpecificationsButton = driver.findElement(By.cssSelector(".\\_1_bHOFDacR:nth-child(2)"));
         differentSpecificationsButton.click();
         Assert.assertTrue(driver.findElements(By.xpath("//div[contains(text(), 'Операционная система')]")).isEmpty());
+    }
+
+    @After
+    public void setDown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
