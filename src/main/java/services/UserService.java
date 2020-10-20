@@ -39,4 +39,25 @@ public class UserService {
                 .log().all()
                 .get(GET_USER);
     }
+
+    public Response createTestUserWithData(){
+        User user;
+        Long id = 101L;
+        String firstName = "Ivan";
+        String lastName = "Petrov";
+        String email = "Test@mail.ru";
+
+        user = User.builder()
+                .email(email)
+                .id(id)
+                .firstName(firstName)
+                .lastName(lastName)
+                .password("Password")
+                .phone("8-777-920-23-23")
+                .username("Ivan123")
+                .userStatus(10L)
+                .build();
+
+        return addUserRequest(user);
+    }
 }

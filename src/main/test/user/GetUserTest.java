@@ -10,17 +10,17 @@ public class GetUserTest extends UserTestBase{
     @Test
     public void getUser() {
         Response response;
-        String userName = "string";
-        Integer expectedId = 1292;
+        Response createTestUser = userService.createTestUserWithData();
+        String userName = createTestUser.jsonPath().get("firstName");
+        String userId = createTestUser.jsonPath().get("id");
 
         response = userService.getUserRequest("string");
 
         response
                 .then()
-                .log().all()
                 .statusCode(HttpStatus.SC_OK)
                 .time(lessThan(5000L))
-                .body("id", equalTo(expectedId))
+                .body("id", equalTo(userId))
                 .body("firstName", equalTo(userName));
     }
 
@@ -35,7 +35,6 @@ public class GetUserTest extends UserTestBase{
 
         response
                 .then()
-                .log().all()
                 .statusCode(HttpStatus.SC_NOT_FOUND)
                 .time(lessThan(5000L))
                 .body("type", equalTo(errorType))

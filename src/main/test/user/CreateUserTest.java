@@ -34,7 +34,6 @@ public class CreateUserTest extends UserTestBase {
 
         response
                 .then()
-                .log().all()
                 .statusCode(HttpStatus.SC_OK)
                 .time(lessThan(5000L))
                 .body("type", equalTo(expectedType))
@@ -64,7 +63,6 @@ public class CreateUserTest extends UserTestBase {
 
         response
                 .then()
-                .log().all()
                 .statusCode(HttpStatus.SC_OK)
                 .time(lessThan(5000L))
                 .body("type", equalTo(expectedType))
