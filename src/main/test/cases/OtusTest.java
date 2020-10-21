@@ -1,6 +1,5 @@
 package cases;
 
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.MainPage;
@@ -9,9 +8,10 @@ import utils.BaseHooks;
 
 public class OtusTest extends BaseHooks {
 
-    @Parameters({"email", "password"})
     @Test()
-    public void addUserDataTest(String email, String password) {
+    public void addUserDataTest() {
+        String email = "bakytgul.sarsenbayeva@btsdigital.kz";
+        String password = "VXuVrCLpT8su";
         MainPage mainPage = new MainPage(driver);
         mainPage.openSite();
         mainPage.openLoginPage();
