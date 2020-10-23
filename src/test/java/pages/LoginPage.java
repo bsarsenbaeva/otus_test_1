@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,16 +13,19 @@ public class LoginPage extends AbstractPage {
         super(driver);
     }
 
+    @Step("Ввести е-мейл")
     public LoginPage typeEmail(String email) {
         driver.findElement(emailLocator).sendKeys(email);
         return this;
     }
 
+    @Step("Ввести пароль")
     public LoginPage typePassword(String password) {
         driver.findElement(passwordLocator).sendKeys(password);
         return this;
     }
 
+    @Step("Нажать авторизоваться")
     public MainPage submitLogin() {
         driver.findElement(loginButtonLocator).submit();
         return new MainPage(driver);

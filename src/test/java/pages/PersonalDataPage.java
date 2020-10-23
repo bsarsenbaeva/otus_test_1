@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,7 @@ public class PersonalDataPage extends AbstractPage {
         super(driver);
     }
 
+    @Step("Заполнить поля с личной информацией")
     public PersonalDataPage addPersonalInfo() {
         driver.findElement(nameField).sendKeys("Бакытгуль");
         driver.findElement(nameLatinField).sendKeys("Bakytgul");
@@ -27,6 +29,7 @@ public class PersonalDataPage extends AbstractPage {
         return this;
     }
 
+    @Step("Добавить первого контакта")
     public PersonalDataPage addFirstContact() {
         driver.findElement(By.cssSelector("button.lk-cv-block__action:nth-child(6)")).click();
         driver.findElement(By.cssSelector("div.js-formset-row:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > label:nth-child(1) > div:nth-child(2)")).click();
@@ -35,6 +38,7 @@ public class PersonalDataPage extends AbstractPage {
         return this;
     }
 
+    @Step("Добавить второго контакта")
     public PersonalDataPage addSecondContact() {
         driver.findElement(By.cssSelector("button.lk-cv-block__action:nth-child(6)")).click();
         driver.findElement(By.cssSelector("div.js-formset-row:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > label:nth-child(1) > div:nth-child(2)")).click();
@@ -43,11 +47,13 @@ public class PersonalDataPage extends AbstractPage {
         return this;
     }
 
+    @Step("Сохранить изменения")
     public PersonalDataPage saveChanges() {
         driver.findElement(buttonSave).click();
         return this;
     }
 
+    @Step("Проверить личные данные")
     public PersonalDataPage assertData() {
         String name = driver.findElement(nameField).getAttribute("value");
         String nameLatin = driver.findElement(nameLatinField).getAttribute("value");
