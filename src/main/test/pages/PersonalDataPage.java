@@ -56,9 +56,9 @@ public class PersonalDataPage extends AbstractPage {
         String blogName = driver.findElement(blogNameField).getAttribute("value");
         String birthDate = driver.findElement(birthDateField).getAttribute("value");
 
-        Assert.assertEquals(name, "БакытгульБакытгуль");
+        Assert.assertEquals(name, "Бакытгуль");
         Assert.assertEquals(nameLatin, "Bakytgul");
-        Assert.assertEquals(lastName, "СарсенбаеваСарсенбаева");
+        Assert.assertEquals(lastName, "Сарсенбаева");
         Assert.assertEquals(lastNameLatin, "Sarsenbayeva");
         Assert.assertEquals(blogName, "Bakytgul");
         Assert.assertEquals(birthDate, "14.04.1993");
