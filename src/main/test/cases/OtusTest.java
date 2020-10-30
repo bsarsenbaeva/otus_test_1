@@ -17,25 +17,25 @@ public class OtusTest extends BaseHooks {
         mainPage.openLoginPage();
         LoginPage loginPage = new LoginPage(driver);
         //autorize
-        loginPage.typeEmail(email)
-                .typePassword(password)
-                .submitLogin();
-        mainPage.openPersonalDataPage();
-        PersonalDataPage personalDataPage = new PersonalDataPage(driver);
-        //add info
-        personalDataPage.addPersonalInfo()
-                .addFirstContact()
-                .addSecondContact()
-                .saveChanges();
-        //delete cookies and login again
-        mainPage.deleteCookies()
-                .openSite();
-        mainPage.openLoginPage();
-        loginPage.typeEmail(email)
-                .typePassword(password)
-                .submitLogin();
-        //assert that data is correct
-        mainPage.openPersonalDataPage();
-        personalDataPage.assertData();
+//        loginPage.typeEmail(email)
+//                .typePassword(password)
+//                .submitLogin();
+//        mainPage.openPersonalDataPage();
+//        PersonalDataPage personalDataPage = new PersonalDataPage(driver);
+//        //add info
+//        personalDataPage.addPersonalInfo()
+//                .addFirstContact()
+//                .addSecondContact()
+//                .saveChanges();
+//        //delete cookies and login again
+//        mainPage.deleteCookies()
+//                .openSite();
+//        mainPage.openLoginPage();
+//        loginPage.typeEmail(email)
+//                .typePassword(password)
+//                .submitLogin();
+//        //assert that data is correct
+//        mainPage.openPersonalDataPage();
+//        personalDataPage.assertData();
     }
 }
